@@ -3,17 +3,17 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "week1app": {
+    "cms1": {
       "projectType": "application",
       "schematics": {},
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "cms",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/week1app",
+            "outputPath": "dist/cms1",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "week1app:build:production"
+              "browserTarget": "cms1:build:production"
             },
             "development": {
-              "browserTarget": "week1app:build:development"
+              "browserTarget": "cms1:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "week1app:build"
+            "browserTarget": "cms1:build"
           }
         },
         "test": {
@@ -99,5 +99,5 @@
       }
     }
   },
-  "defaultProject": "week1app"
+  "defaultProject": "cms1"
 }
