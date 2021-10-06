@@ -1,0 +1,11 @@
+<div class="row">
+    <div class="col-md-5">
+      <app-message-list
+        (selectedContactEvent)="selectedMessage = $event"></app-message-list>
+    </div>
+    <div class="col-md-7">
+      <app-message-item
+        *ngFor="selectedMessage"
+        [message]="selectedMessage"></app-message-item>
+    </div>
+  </div>
