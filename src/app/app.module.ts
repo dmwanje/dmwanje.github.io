@@ -19,7 +19,7 @@ import { DocumentItemComponent } from './documents/document-item/document-item.c
 import { DropdownDirective } from './shared/dropdown.directive';
 import { AppRoutingModule } from './app-routing.module';
 import { DocumentEditComponent } from './documents/document-edit/document-edit.component';
-
+import { Routes } from '@angular/router';
 
 
 @NgModule({
