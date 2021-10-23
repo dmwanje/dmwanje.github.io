@@ -1,4 +1,7 @@
 export class Document {
+    slice(): Document[] {
+      throw new Error('Method not implemented.');
+    }
     public id: string;
     public name: string;
     public description: string;
