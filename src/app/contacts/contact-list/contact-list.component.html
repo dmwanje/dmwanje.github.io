@@ -2,7 +2,7 @@
     <div class="panel-heading">
         <div class="clearfix">
             <span class="pull-right">
-                <button class="btn btn-success">New Contact</button>
+                <button class="btn btn-success" [routerLink]="'new'">New Contact</button>
                </span>
         <h3>Contacts</h3>
         </div>
@@ -13,7 +13,7 @@
       <app-contact-item 
       *ngFor="let contactEl of contacts"
       [contact]="contactEl"
-      (contactSelected)="onSelected(contactEl)"></app-contact-item>
+      ></app-contact-item>
     </div>
     </div>
   </div>
