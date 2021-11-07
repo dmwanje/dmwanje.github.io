@@ -1,9 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output } from '@angular/core';
 import { Subject } from 'rxjs';
-
-
 import { Document } from './document.model';
-import { DocumentsComponent } from './documents.component';
 import { MOCKDOCUMENTS } from './MOCKDOCUMENTS';
 
 
@@ -13,9 +10,8 @@ import { MOCKDOCUMENTS } from './MOCKDOCUMENTS';
 })
 export class DocumentService {
   documentSelectedEvent: Subject<Document> = new Subject<Document>();
-  documentChangedEvent: Subject<Document[]> = new Subject<Document[]>();
-
-  documentListChangedEvent = new Subject<Document[]>();
+/*   documentChangedEvent: Subject<Document[]> = new Subject<Document[]>(); */
+  documentListChangedEvent: Subject<Document[]> = new Subject<Document[]>(); 
 
  documents: Document [] =[];
  maxDocumentId: number;
@@ -37,9 +33,9 @@ export class DocumentService {
             return document;
         }
     }
-  return null;
+    return null;
     
-    }
+  }
   
    getMaxId(): number {
     let maxId = 0;
@@ -79,6 +75,7 @@ updateDocument(originalDocument: Document, newDocument: Document) {
 
     newDocument.id = originalDocument.id;
     this.documents[pos] = newDocument;
+    console.log(this.documents)
    var documentsListClone = this.documents.slice()
   
   this.documentListChangedEvent.next(documentsListClone)
