@@ -17,7 +17,7 @@ export class DocumentService {
  maxDocumentId: number;
 
   constructor( private http: HttpClient) { 
-    this.documents = MOCKDOCUMENTS;
+    /* this.documents = MOCKDOCUMENTS; */
     this.maxDocumentId = this.getMaxId();
 
   }

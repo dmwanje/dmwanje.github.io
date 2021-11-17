@@ -18,8 +18,8 @@ export class MessageService {
   maxMessageId: number;
 
   constructor( private http: HttpClient ) {
-    this.messages = MOCKMESSAGES;
-    this.maxMessageId = this.getMaxId();
+   /*  this.messages = MOCKMESSAGES; */
+    this.maxMessageId = this.getMaxId(); 
    }
 
    getMessages(): Message[] {
