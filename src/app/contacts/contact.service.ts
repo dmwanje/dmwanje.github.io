@@ -21,7 +21,7 @@ export class ContactService {
    }
 
    getContacts(): Contact[] {
-    this.http.get<Contact[]>('https://cmsapp-e0aae-default-rtdb.firebaseio.com/contacts.json')
+    this.http.get<Contact[]>('http://localhost:3000/contacts')
     .subscribe(
     //success method
     (contacts:Contact[]) =>{
@@ -71,7 +71,8 @@ addContact(newContact: Contact) {
   if (!newContact){
     return;
   }
-  this.maxContactId++;
+
+this.maxContactId++;
  var nn = parseInt(newContact.id);
   nn = this.maxContactId;
   this.contacts.push(newContact);
@@ -97,20 +98,28 @@ updateContact(originalContact: Contact, newContact: Contact) {
    this.storeContacts();
       }
 
-deleteContact(contact: Contact) {
-    if (!contact){
-      return;
-    }
-    
-  let  pos = this.contacts.indexOf(contact);
-    if (pos < 0) {
-      return;
-    } 
 
-    this.contacts.splice(pos, 1)
-    var contactsListClone = this.contacts.slice()
-    this.storeContacts();
-}
+      deleteContact(contact: Contact) {
+
+        if (!contact) {
+          return;
+        }
+    
+        const pos = this.contacts.findIndex(d => d.id === contact.id);
+    
+        if (pos < 0) {
+          return;
+        }
+    
+        // delete from database
+        this.http.delete('http://localhost:3000/contacts/' + contact.id)
+          .subscribe(
+            (response: Response) => {
+              this.contacts.splice(pos, 1);
+              /* this.sortAndSend(); */
+            }
+          );
+      }
    
 storeContacts(){
   
